@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
 }
+
 .navbar, .footer {
   font-family: 'Comme', sans-serif;
   background-color:#be9e44;

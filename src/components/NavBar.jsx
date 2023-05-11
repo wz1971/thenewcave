@@ -6,7 +6,7 @@ import CartWidget from './CartWidget'
 const NavBar = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg">
+      <nav className="navbar navbar-expand-lg border-bottom border-warning border-3">
         <div className="container-fluid">
           <a className="navbar-brand p-1" href="#">
             <img src={pipeicon} alt="Brand Logo" width="50" height="50" className="mx-3 brandlogo"></img>

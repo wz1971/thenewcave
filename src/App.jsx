@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       <Header />
-      <ItemListContainer myalert={"Hot Sale! Up to 50% off in selected items!"}/>
+      <ItemListContainer myalert={[<strong>Hot Sale!!! </strong>," Up to ", <strong>50% off</strong>, " in selected items."]}/>
       <Footer />
     </div>
   );
