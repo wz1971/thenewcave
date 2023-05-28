@@ -1,0 +1,16 @@
+.footer {
+  font-family: "Comme", sans-serif;
+  background-color: #ff9505;
+}
+
+#logoList {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.footerLogos {
+  width: 50px;
+  height: 50px;
+}

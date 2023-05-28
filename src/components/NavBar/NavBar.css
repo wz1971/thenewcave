@@ -1,0 +1,15 @@
+.navbar {
+  font-family: "Comme", sans-serif;
+  background-color: #ff9505;
+}
+
+.navbar-brand {
+  font-family: "Marcellus", serif;
+}
+
+.brandlogo {
+  border: 2px;
+  border-style: dotted;
+  border-color: black;
+  border-radius: 10px;
+}
