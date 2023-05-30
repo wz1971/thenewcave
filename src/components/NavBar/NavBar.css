@@ -1,6 +1,10 @@
 .navbar {
   font-family: "Comme", sans-serif;
-  background-color: #ff9505;
+  background-color: #fbba72;
+}
+
+.nav-link {
+  font-weight: bolder;
 }
 
 .navbar-brand {

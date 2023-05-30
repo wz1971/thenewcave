@@ -1,8 +1,24 @@
 .card {
-  background-color: #353531;
+  background-color: #bb4d00;
   color: whitesmoke;
+  border-color: #691e06;
+  border-width: 1px;
+  border-radius: 0;
+}
+
+.card-body {
+  font-family: "Comme", sans-erif;
 }
 
 .card-title {
-  font-family: "Marcellus" serif;
+  font-weight: bolder;
+}
+
+.card-img-top {
+  border-radius: 0;
+}
+.btn {
+  background-color: #8f250c;
+  font-weight: bold;
+  color: whitesmoke;
 }
