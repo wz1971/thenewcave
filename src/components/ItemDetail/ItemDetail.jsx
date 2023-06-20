@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react"
 import ItemCount from "../ItemCount/ItemCount"
 import { Link } from "react-router-dom"
 
-const ItemDetail = ({ stock, category, description, id, image, title, origin, price, provider }) => {
+const ItemDetail = ({ stock, description, idprod, image, title }) => {
   const [addedQty, setAddedQty] = useState(0)
 
   const onAdd = (qty) => {
