@@ -1,7 +1,14 @@
-import React from "react"
+import React, { useState, useContext } from "react"
 import ItemCount from "../ItemCount/ItemCount"
+import { Link } from "react-router-dom"
 
 const ItemDetail = ({ stock, category, description, id, image, title, origin, price, provider }) => {
+  const [addedQty, setAddedQty] = useState(0)
+
+  const onAdd = (qty) => {
+    setAddedQty(qty)
+  }
+
   return (
     <div className="card mb-3">
       <div className="row g-0">
@@ -17,7 +24,7 @@ const ItemDetail = ({ stock, category, description, id, image, title, origin, pr
             </p>
           </div>
         </div>
-        <ItemCount initial={1} stock={stock} />
+        {addedQty > 0 ? <Link to="/cart">Finish Purchase</Link> : <ItemCount initial={1} stock={stock} onAdd={onAdd} />}
       </div>
     </div>
   )
