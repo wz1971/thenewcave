@@ -1,33 +1,35 @@
-import React from "react"
-import { useState } from "react"
-import { useEffect } from "react"
+import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
-const ItemCount = ({ stock, initial }) => {
-  const [quantity, setQuantity] = useState(initial)
+const ItemCount = ({ stock, onAdd }) => {
+  const [items, setItems] = useState(1)
   const [itemStock, setItemStock] = useState(stock)
+  const [itemAdded, setItemAdded] = useState(false)
 
   const increment = () => {
-    if (quantity < stock) {
-      setQuantity(quantity + 1)
+    if (items < itemStock) {
+      setItems(items + 1)
     } else alert("Out of stock.")
   }
 
   const decrement = () => {
-    if (quantity > 0) {
-      setQuantity(quantity - 1)
+    if (items > 0) {
+      setItems(items - 1)
     } else alert("You have no items selected.")
   }
 
-  const onAdd = () => {
-    if (quantity <= itemStock) {
-      setItemStock(itemStock - quantity)
-      setQuantity(1)
+  const addToCart = () => {
+    if (items <= itemStock) {
+      setItemStock(itemStock - items)
+      setItems(1)
+      setItemAdded(true)
+      onAdd(items)
     }
   }
 
   useEffect(() => {
-    setItemStock(itemStock)
-  }, [itemStock])
+    setItemStock(stock)
+  }, [stock])
 
   return (
     <div className="container-fluid bg-warning-subtle">
@@ -38,7 +40,7 @@ const ItemCount = ({ stock, initial }) => {
               -
             </button>
             <button type="button" className="btn btn-secondary">
-              {quantity}
+              {items}
             </button>
             <button type="button" className="btn btn-secondary mx-1" onClick={increment}>
               +
@@ -47,10 +49,21 @@ const ItemCount = ({ stock, initial }) => {
         </div>
       </div>
       <div className="row text-center">
-        <div className="column">
-          <button type="button" className="btn" onClick={onAdd}>
-            Add To Cart
-          </button>
+        <div className="col">
+          {itemAdded ? (
+            <div>
+              <Link to="/cart" className="btn">
+                <b>Finish purchase</b>
+              </Link>
+              <Link to="/" className="btn">
+                <b>Continue Shopping</b>
+              </Link>
+            </div>
+          ) : (
+            <button type="button" className="btn" onClick={addToCart}>
+              Add To Cart
+            </button>
+          )}
         </div>
       </div>
     </div>

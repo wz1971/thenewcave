@@ -1,30 +1,31 @@
-import React, { useState, useContext } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import ItemCount from "../ItemCount/ItemCount"
-import { Link } from "react-router-dom"
+import { CartContext } from "../context/CartContext"
 
-const ItemDetail = ({ stock, description, idprod, image, title }) => {
-  const [addedQty, setAddedQty] = useState(0)
-
+const ItemDetail = ({ product }) => {
+  const { addItem } = useContext(CartContext)
+  const [item, setItem] = useState({})
   const onAdd = (qty) => {
-    setAddedQty(qty)
+    addItem(item, qty)
   }
+
+  useEffect(() => {
+    setItem(product)
+  }, [product])
 
   return (
     <div className="card mb-3">
       <div className="row g-0">
         <div className="col-md-4">
-          <img src={image} className="img-fluid rounded-start" alt={title} />
+          <img src={item.image} className="img-fluid rounded-start" alt={item.title} />
         </div>
         <div className="col-md-8">
           <div className="card-body">
-            <h5 className="card-title text-center">{title}</h5>
-            <p className="card-text">{description}</p>
-            <p className="card-text">
-              <small>Available Stock: {stock}</small>
-            </p>
+            <h5 className="card-title text-center">{item.title}</h5>
+            <p className="card-text">{item.description}</p>
           </div>
         </div>
-        {addedQty > 0 ? <Link to="/cart">Finish Purchase</Link> : <ItemCount initial={1} stock={stock} onAdd={onAdd} />}
+        <ItemCount stock={item.stock} onAdd={onAdd} />
       </div>
     </div>
   )

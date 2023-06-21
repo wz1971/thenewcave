@@ -1,14 +1,19 @@
-import React from "react"
+import React, { useContext } from "react"
 import carticon from "../images/cart2.svg"
+import { CartContext } from "../context/CartContext"
+import { Link } from "react-router-dom"
 
 const CartWidget = () => {
+  const { cartTotalProducts } = useContext(CartContext)
+
   return (
-    <button type="button" className="btn btn-secondary position-relative mx-3">
+    <Link to="/cart" className="btn btn-secondary position-relative mx-3">
       <img src={carticon} alt="Cart Icon" />
       <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-danger">
-        3<span className="visually-hidden">unread messages</span>
+        {cartTotalProducts() || 0}
+        <span className="visually-hidden">Items in cart</span>
       </span>
-    </button>
+    </Link>
   )
 }
 
