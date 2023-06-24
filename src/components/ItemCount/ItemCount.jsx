@@ -32,17 +32,17 @@ const ItemCount = ({ stock, onAdd }) => {
   }, [stock])
 
   return (
-    <div className="container-fluid bg-warning-subtle">
+    <div className="container-fluid mt-3">
       <div className="row text-center">
         <div className="col">
           <div className="btn-group my-1" role="group" aria-label="Basic example">
-            <button type="button" className="btn btn-secondary mx-1" onClick={decrement}>
+            <button type="button" className="btn btn-secondary mx-2 border-0" onClick={decrement}>
               -
             </button>
-            <button type="button" className="btn btn-secondary">
+            <button type="button" className="btn btn-secondary border-0">
               {items}
             </button>
-            <button type="button" className="btn btn-secondary mx-1" onClick={increment}>
+            <button type="button" className="btn btn-secondary mx-2 border-0" onClick={increment}>
               +
             </button>
           </div>

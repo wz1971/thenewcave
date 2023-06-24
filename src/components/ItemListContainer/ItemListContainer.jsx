@@ -26,7 +26,7 @@ const ItemListContainer = ({ greeting }) => {
     })
   }, [category])
 
-  return <div className="container my-5">{loading ? <Loading /> : <ItemList products={products} />}</div>
+  return loading ? <Loading /> : <ItemList products={products} />
 }
 
 export default ItemListContainer

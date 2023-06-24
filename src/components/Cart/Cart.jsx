@@ -11,8 +11,8 @@ const Cart = () => {
     return <CartIsEmpty />
   } else {
     return (
-      <div className="container d-flex flex-column py-5">
-        <div>
+      <div className="container-fluid vh-100 vw100 p-5" id="mainCartContainer">
+        <div className="p-5">
           <h1>Items in your cart</h1>
         </div>
         <div>

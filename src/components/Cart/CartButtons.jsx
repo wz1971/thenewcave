@@ -7,15 +7,15 @@ const CartButtons = () => {
   const atCart = useLocation().pathname === "/cart"
   const { emptyCart } = useContext(CartContext)
   return (
-    <div className="d-flex justify-content-around">
-      <button type="button" className="btn" onClick={emptyCart}>
+    <div className="d-flex justify-content-around mt-5 py-5">
+      <button type="button" className="btn btn-secondary fs-6" onClick={emptyCart}>
         Empty Cart
       </button>
-      <Link to="/" className="btn">
+      <Link to="/" className="btn btn-secondary fs-6">
         Continue Shopping
       </Link>
       {atCart ? (
-        <Link to="/checkout" className="btn">
+        <Link to="/checkout" className="btn btn-secondary fs-6">
           Check Out
         </Link>
       ) : (

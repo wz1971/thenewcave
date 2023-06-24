@@ -6,7 +6,7 @@ import whatsapplogo from "../images/whatsapp.svg"
 
 const Footer = () => {
   return (
-    <div className="py-2 footer border-top border-warning border-3">
+    <div className="container-fluid py-2 footer border-top border-warning border-5">
       <ul id="logoList">
         <li>
           <div>

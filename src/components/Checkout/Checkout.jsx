@@ -6,6 +6,7 @@ import CartIsEmpty from "../Cart/CartIsEmpty"
 import CartButtons from "../Cart/CartButtons"
 import { getFirestore, collection, addDoc } from "firebase/firestore"
 import { Navigate } from "react-router-dom"
+import "./Checkout.css"
 
 const Checkout = () => {
   const { cartTotalAmount, emptyCart } = useContext(CartContext)
@@ -27,14 +28,14 @@ const Checkout = () => {
   return cartTotalAmount === 0 ? (
     <CartIsEmpty />
   ) : (
-    <div className="container-fluid p-5 d-flex justify-content-evenly">
-      <div className="container px-5 mx-2">
-        <h1 className="text-center">Your items</h1>
+    <div className="container-fluid p-5 d-flex justify-content-evenly vh-100" id="mainCheckoutContainer">
+      <div className="container px-5 mx-2 border border-1">
+        <h2 className="text-center p-5">Your items</h2>
         <CartTable />
         <CartButtons />
       </div>
-      <div>
-        <h1 className="text-center">Your personal data</h1>
+      <div className="border border-1">
+        <h2 className="text-center p-5">Your personal data</h2>
         <OrderForm onSubmit={handleOrderSubmit} />
       </div>
       <div className="row my-5">

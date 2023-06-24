@@ -11,37 +11,37 @@ const CartTable = () => {
       <table className="table">
         <thead>
           <tr>
-            <th scope="col" className="text-start">
+            <th scope="col" className="text-center fs-6">
               Item
             </th>
-            <th scope="col" className="text-center">
+            <th scope="col" className="text-center fs-6">
               Quantity
             </th>
-            <th scope="col" className="text-center">
+            <th scope="col" className="text-center fs-6">
               Name
             </th>
-            <th scope="col" className="text-center">
+            <th scope="col" className="text-center fs-6">
               Price
             </th>
-            <th scope="col" className="text-end">
+            <th scope="col" className="text-end fs-6">
               Amount
             </th>
-            <th scope="col" className="text-center">
-              Remove from Cart
+            <th scope="col" className="text-center fs-6">
+              Remove
             </th>
           </tr>
         </thead>
         <tbody>
           {cart.map((item, index) => (
             <tr key={item.id}>
-              <th scope="row" className="text-center">
+              <th scope="row" className="text-center fs-6">
                 {index + 1}
               </th>
-              <td className="text-center">{item.quantity}</td>
-              <td className="text-center">{item.title}</td>
-              <td className="text-end">${item.price}</td>
-              <td className="text-end">${item.price * item.quantity}</td>
-              <td className="align-middle text-center">
+              <td className="text-center fs-6">{item.quantity}</td>
+              <td className="text-center fs-6">{item.title}</td>
+              <td className="text-end fs-6">${item.price}</td>
+              <td className="text-end fs-6">${item.price * item.quantity}</td>
+              <td className="align-middle text-center fs-6">
                 <button
                   className="btn btn-light"
                   onClick={() => {
@@ -55,10 +55,10 @@ const CartTable = () => {
             </tr>
           ))}
           <tr>
-            <td colSpan={4} className="text-end px-3 fw-bold">
+            <td colSpan={4} className="text-end px-3 fw-bold fs-6">
               Total
             </td>
-            <td className="fw-bold text-end">$ {cartTotalAmount()}</td>
+            <td className="fw-bold text-end fs-6">$ {cartTotalAmount()}</td>
           </tr>
         </tbody>
       </table>

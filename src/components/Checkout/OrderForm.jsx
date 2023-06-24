@@ -7,7 +7,6 @@ const OrderForm = ({ onSubmit }) => {
   const [lastName, setLastName] = useState("")
   const [phoneNumber, setPhoneNumber] = useState("")
   const [email, setEmail] = useState("")
-  const [emailConfirmation, setEmailConfirmation] = useState("")
   const cartItems = cart.map((prod) => ({
     id: prod.id,
     title: prod.title,
@@ -91,23 +90,8 @@ const OrderForm = ({ onSubmit }) => {
             required
           />
         </div>
-        <div className="col-md-6">
-          <label htmlFor="inputEmail2" className="form-label">
-            Confirm Email
-          </label>
-          <input
-            name="emailConfirmation"
-            type="email"
-            className="form-control"
-            id="inputEmail2"
-            value={emailConfirmation}
-            onChange={(e) => setEmailConfirmation(e.target.value)}
-            placeholder="jdoe@somemail.com"
-            required
-          />
-        </div>
-        <div className="col-md-6 d-flex justify-content-center">
-          <button className="btn btn-primary btn-lg btn-block" type="submit">
+        <div className="col d-flex justify-content-center pt-4">
+          <button className="btn btn-secondary" type="submit">
             Submit Order
           </button>
         </div>
