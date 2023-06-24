@@ -12,12 +12,9 @@ const CartContextProvider = ({ children }) => {
   const addItem = (item, qty) => {
     if (inCart(item.id)) {
       let index = cart.findIndex((prod) => prod.id === item.id)
-      console.log("Product exists in cart at position: " + index)
       cart[index].quantity += qty
-      console.log("Now we have " + qty + " units of this product")
       setCart([...cart])
     } else {
-      console.log("Product not in cart, adding to array " + qty + " of " + item.id)
       setCart([...cart, { ...item, quantity: qty }])
     }
   }

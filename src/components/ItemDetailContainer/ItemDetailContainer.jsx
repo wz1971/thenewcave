@@ -3,10 +3,12 @@ import ItemDetail from "../ItemDetail/ItemDetail"
 import { useParams } from "react-router-dom"
 import { getFirestore, doc, getDoc } from "firebase/firestore"
 import Loading from "../Loading/Loading"
+import NotFound from "../NotFound/NotFound"
 
 const ItemDetailContainer = () => {
   const [item, setItem] = useState({})
-  const [loading, setLoading] = useState(true)
+  const [prodFound, setProdFound] = useState(false)
+  const [dataFetched, setDataFetched] = useState(false)
   const id = useParams().id
 
   useEffect(() => {
@@ -14,11 +16,20 @@ const ItemDetailContainer = () => {
     const product = doc(db, "items", id)
     getDoc(product).then((result) => {
       setItem({ id: result.id, ...result.data() })
-      setLoading(false)
+      if (result.exists()) {
+        setProdFound(true)
+      }
+      setDataFetched(true)
     })
   }, [id])
 
-  return <div className="ItemDetailContainer d-flex">{loading ? <Loading /> : <ItemDetail product={item} />}</div>
+  if (!dataFetched) {
+    return <Loading />
+  } else if (prodFound) {
+    return <ItemDetail product={item} />
+  } else {
+    return <NotFound />
+  }
 }
 
 export default ItemDetailContainer

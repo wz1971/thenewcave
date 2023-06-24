@@ -1,7 +1,7 @@
 import React from "react"
 import "./NavBar.css"
 import pipeicon from "../images/pipeicon.png"
-import CartWidget from "../CartWidget/CartWidget"
+import CartWidget from "../Cart/CartWidget"
 import { Link } from "react-router-dom"
 
 const NavBar = () => {
