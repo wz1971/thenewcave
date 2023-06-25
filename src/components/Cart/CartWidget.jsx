@@ -9,10 +9,12 @@ const CartWidget = () => {
   return (
     <Link to="/cart" className="btn btn-secondary position-relative mx-3">
       <img src={carticon} alt="Cart Icon" />
-      <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-danger">
-        {cartTotalProducts() || 0}
-        <span className="visually-hidden">Items in cart</span>
-      </span>
+      {cartTotalProducts() > 0 && (
+        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-danger">
+          {cartTotalProducts()}
+          <span className="visually-hidden">Items in cart</span>
+        </span>
+      )}
     </Link>
   )
 }

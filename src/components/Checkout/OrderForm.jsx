@@ -21,9 +21,9 @@ const OrderForm = ({ onSubmit }) => {
       email: email,
       items: cartItems,
       totalAmount: cartTotalAmount(),
+      date: new Date(),
     }
     e.preventDefault()
-    console.log(formData)
     onSubmit(formData)
   }
 
